@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+read -p "Enter Database Name: " dbname
+
+if [ -d myDB/$dbname ]
+then
+    echo "Database already exists"
+    exit 1
+fi
+
+if [[ ! "$dbname" =~ ^[A-Za-z][A-Za-z0-9_-]*$ ]]
+ then
+    echo "Invalid name! Only letters, numbers, _ and - allowed."
+    exit 1
+fi
+
+mkdir myDB/$dbname
+echo "Database '$dbname' created."
+
+

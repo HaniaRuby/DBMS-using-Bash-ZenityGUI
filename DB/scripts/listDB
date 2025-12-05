@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+echo "Wait listing your Databases"
+ls -F myDB | grep /| grep -v scripts

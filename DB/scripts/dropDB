@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+read -p "Enter Database Name: " dbname
+
+if [ ! -d myDB/$dbname ]
+then
+    echo "Database does not exist"
+    exit 1
+fi
+
+read -p "Are you sure you want to drop this Database 	'$dbname'?(Y/N) " choice
+if [[ $choice =~ ^[Yy]$ ]]
+then 
+	rm -r myDB/$dbname
+	echo "Database $dbname was successfully deleted"
+else 
+	echo "Cancelled"
+fi

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+read -p "Enter table name to delete " tbname
+if ! [ -f "$tbname" ]
+then 
+echo "This table doesn't exist"
+exit 1
+fi
+read -p "Are you sure you want to drop table 
+($tbname)?(Y/N)" choice 
+if [[ "$choice" =~ ^[Yy]$ ]]
+then 
+	rm  $tbname
+	echo "table $tbname was successfully deleted"
+else 
+	echo "Cancelled"
+fi

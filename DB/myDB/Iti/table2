@@ -1,0 +1,5 @@
+column=Name:string,Age:int,City:string,Country:string
+primary_key=Name
+Mohamed 28 giza Egypt
+John 25 london Uk
+Jake 30 Cairo Egypt

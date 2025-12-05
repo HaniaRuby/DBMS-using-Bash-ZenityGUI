@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+read -p "Enter Database name to connect " dbname
+if ! [[ -d myDB/$dbname ]]
+then 
+echo " Database $dbname doesn't exist "
+exit 1
+fi
+echo "Connected to Database $dbname"
+cd myDB/$dbname
+PS3=" ($dbname)> "
+select cmd in "Create table" "Drop Table" "List Tables" \
+"Insert into table" "Delete from Table" "Select From Table" \
+"Update Table" "Back"
+do
+    case $REPLY in
+	1) ../../scripts/createTable.sh ;;
+	2)../../scripts/dropTable.sh ;;
+	3) ../../scripts/listTables.sh ;;
+	4) ../../scripts/insert.sh ;;
+	5) ../../scripts/delete.sh ;;
+	6) ../../scripts/select.sh ;;
+	7) ../../scripts/update.sh ;;
+        8)
+            cd ../..
+            break
+        ;;
+        *)
+            echo "Invalid"
+        ;;
+    esac
+done
